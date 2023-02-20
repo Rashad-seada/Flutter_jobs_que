@@ -42,9 +42,13 @@ class _AuthFieldState extends State<AuthField> {
 
 
   icon(AuthIcons? iconType,bool active){
-    if(iconType == AuthIcons.userName) return AppImages.profileIcon(active: active);
-    else if(iconType == AuthIcons.email) return AppImages.emailIcon(active: active);
-    else if(iconType == AuthIcons.password) return AppImages.lockIcon(active: active);
+    if(iconType == AuthIcons.userName) {
+      return AppImages.profileIcon(active: active);
+    } else if(iconType == AuthIcons.email) {
+      return AppImages.emailIcon(active: active);
+    } else if(iconType == AuthIcons.password) {
+      return AppImages.lockIcon(active: active);
+    }
   }
 
   @override
