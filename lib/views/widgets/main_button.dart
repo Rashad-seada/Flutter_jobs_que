@@ -11,7 +11,7 @@ class MainButton extends StatefulWidget {
   MainButton({
     this.width,
     this.height,
-    this.color = AppTheme.primaryClr,
+    this.color = AppTheme.primary500Clr,
     this.borderColor = Colors.transparent,
     this.child,
     this.onTap,

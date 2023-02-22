@@ -49,7 +49,7 @@ class AuthFooter extends StatelessWidget {
               MainButton(
                 width: 90.w,
                 height: 6.5.h,
-                color: (context.read<AuthCubit>().isAllValid(option: option))? AppTheme.primaryClr: AppTheme.neutral300 ,
+                color: (context.read<AuthCubit>().isAllValid(option: option))? AppTheme.primary500Clr: AppTheme.neutral300 ,
                 child: CustomText(
                   (option == AuthOptions.signUp)? AppStrings.signUp: AppStrings.login,
                   color: (context.read<AuthCubit>().isAllValid(option: option))?  AppTheme.textClr : AppTheme.neutral500,

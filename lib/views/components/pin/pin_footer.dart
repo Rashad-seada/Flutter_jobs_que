@@ -22,7 +22,7 @@ class PinFooter extends StatelessWidget {
           builder: (context, state) {
             return MainButton(
                     width: 85.w,height: 6.5.h,
-                    color: (context.read<ResetPasswordCubit>().isPinValid)? AppTheme.primaryClr : AppTheme.neutral300,
+                    color: (context.read<ResetPasswordCubit>().isPinValid)? AppTheme.primary500Clr : AppTheme.neutral300,
                     child: CustomText(
                       AppStrings.next,
                       fontSize: AppConsts.textSize.sp,

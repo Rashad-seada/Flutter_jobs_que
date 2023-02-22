@@ -35,9 +35,9 @@ class _FieldCardState extends State<FieldCard> {
         padding: const EdgeInsets.all(15),
         duration: const Duration(milliseconds: 400),
         decoration: BoxDecoration(
-          color: (widget.isSelected == true)? AppTheme.primaryClr.withOpacity(0.1): const Color(0xffFAFAFA),
+          color: (widget.isSelected == true)? AppTheme.primary500Clr.withOpacity(0.1): const Color(0xffFAFAFA),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color:(widget.isSelected == true)? AppTheme.primaryClr : AppTheme.neutral300,width: 1 )
+          border: Border.all(color:(widget.isSelected == true)? AppTheme.primary500Clr : AppTheme.neutral300,width: 1 )
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,7 +47,7 @@ class _FieldCardState extends State<FieldCard> {
 
             CircleAvatar(
               radius: 6.8.w,
-              backgroundColor: (widget.isSelected == true)? AppTheme.primaryClr : AppTheme.neutral300,
+              backgroundColor: (widget.isSelected == true)? AppTheme.primary500Clr : AppTheme.neutral300,
               child: CircleAvatar(
                   radius: 6.6.w,
                   backgroundColor: const Color(0xffFAFAFA),

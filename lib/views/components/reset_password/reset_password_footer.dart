@@ -50,7 +50,7 @@ class ResetPasswordFooter extends StatelessWidget {
             builder: (context, state) {
               return MainButton(
                       width: 85.w,height: 6.5.h,
-                      color: (context.read<ResetPasswordCubit>().isEmailValid)? AppTheme.primaryClr : AppTheme.neutral300,
+                      color: (context.read<ResetPasswordCubit>().isEmailValid)? AppTheme.primary500Clr : AppTheme.neutral300,
                       child: CustomText(
                         AppStrings.forgetPasswordFirstBodyText4,
                         fontSize: AppConsts.textSize.sp,

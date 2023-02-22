@@ -18,6 +18,14 @@ class AppImages {
   static const String passwordResetSuccessfully  = "images/password_successfully_illustration.svg";
   static const String accountCreatedSuccessfully = "images/success_account_illustration.svg";
 
+  static const String notification = "images/notification.svg";
+  static const String search = "images/search.svg";
+
+  static const String clock = "images/clock.svg";
+  static const String delete = "images/delete.svg";
+  static const String suggestions = "images/suggestions.svg";
+  static const String enter = "images/enter.svg";
+
 
   static String profileIcon({required bool active}){
     if(active) return "images/profile_active.svg";

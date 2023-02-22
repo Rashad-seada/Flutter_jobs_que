@@ -76,7 +76,7 @@ class OnboardingPage extends StatelessWidget {
                         text: "${head[index]} ",
                         style: GoogleFonts.lato(
                           textStyle: TextStyle(
-                            color: (findHighlightedWords(highlightedWords,head[index]))? AppTheme.primaryClr:AppTheme.neutral900,
+                            color: (findHighlightedWords(highlightedWords,head[index]))? AppTheme.primary500Clr:AppTheme.neutral900,
                             fontSize: AppConsts.headTextSize.sp,
                             fontWeight: FontWeight.w500,
                           ),

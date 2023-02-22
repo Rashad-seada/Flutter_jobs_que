@@ -26,7 +26,7 @@ class _MainCheckBoxState extends State<MainCheckBox> {
           visualDensity: VisualDensity(horizontal: -4, vertical: -4),
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           side: const BorderSide(color: AppTheme.neutral400,width: 1.25),
-          activeColor: AppTheme.primaryClr,
+          activeColor: AppTheme.primary500Clr,
           value: widget.isChecked,
           onChanged: (isChecked){
               setState(() {

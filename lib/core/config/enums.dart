@@ -8,3 +8,8 @@ enum AuthIcons{
   email,
   password,
 }
+
+enum Search{
+  recent,
+  suggestions,
+}

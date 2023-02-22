@@ -14,7 +14,6 @@ import '../../widgets/auth_field.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/main_back_button.dart';
 import '../../widgets/space.dart';
-import '../../widgets/validation_field.dart';
 
 class AuthBody extends StatelessWidget {
   AuthOptions option;

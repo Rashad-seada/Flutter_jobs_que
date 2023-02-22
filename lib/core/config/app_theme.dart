@@ -8,8 +8,12 @@ class AppTheme {
 
   static const Color error = Color(0xffFF472B);
   static const Color success = Color(0xff60C631);
+  static const Color success700 = Color(0xff2E8E18);
 
-  static const Color primaryClr = Color(0xff3366FF);
+  static const Color primary100Clr = Color(0xffD6E4FF);
+  static const Color primary500Clr = Color(0xff3366FF);
+  static const Color primary900Clr = Color(0xff091A7A);
+
   static const Color infoClr = Color(0xff02337A);
   static const Color authTextClr = Color(0xff363F5E);
 

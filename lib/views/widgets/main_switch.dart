@@ -20,7 +20,7 @@ class _MainSwitchState extends State<MainSwitch> {
   Widget build(BuildContext context) {
     return Switch(
         activeColor: AppTheme.neutral100,
-        activeTrackColor: AppTheme.primaryClr,
+        activeTrackColor: AppTheme.primary500Clr,
 
         inactiveTrackColor: Colors.white,
         //inactiveThumbColor: AppTheme.neutral100,

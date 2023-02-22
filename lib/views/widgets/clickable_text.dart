@@ -40,7 +40,7 @@ class ClickableText extends StatelessWidget {
           TextSpan(text: clickableText,
             style: GoogleFonts.lato(
               textStyle: TextStyle(
-                color: AppTheme.primaryClr,
+                color: AppTheme.primary500Clr,
                 fontSize: AppConsts.subTextSize.sp,
               ),
             ),

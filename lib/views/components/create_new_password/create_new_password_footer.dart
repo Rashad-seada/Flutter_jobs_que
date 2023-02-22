@@ -31,7 +31,7 @@ class CreateNewPasswordFooter extends StatelessWidget {
           children: [
 
             MainButton(
-              color: (context.read<ResetPasswordCubit>().isPassword8Char && context.read<ResetPasswordCubit>().isPasswordMatch)? AppTheme.primaryClr : AppTheme.neutral300,
+              color: (context.read<ResetPasswordCubit>().isPassword8Char && context.read<ResetPasswordCubit>().isPasswordMatch)? AppTheme.primary500Clr : AppTheme.neutral300,
               width: 85.w, height: 6.5.h,
               child: CustomText(
                 AppStrings.forgetPasswordFirstHeadText,

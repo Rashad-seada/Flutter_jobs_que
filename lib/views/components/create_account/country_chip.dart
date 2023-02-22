@@ -37,9 +37,9 @@ class _CountryChipState extends State<CountryChip> {
           padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 8),
           duration: const Duration(milliseconds: 400),
           decoration: BoxDecoration(
-            color: (widget.isSelected == true)? AppTheme.primaryClr.withOpacity(0.1): const Color(0xffFAFAFA),
+            color: (widget.isSelected == true)? AppTheme.primary500Clr.withOpacity(0.1): const Color(0xffFAFAFA),
             borderRadius: BorderRadius.circular(100.h),
-            border: Border.all(color:(widget.isSelected == true)? AppTheme.primaryClr : AppTheme.neutral300,width: 1 ),
+            border: Border.all(color:(widget.isSelected == true)? AppTheme.primary500Clr : AppTheme.neutral300,width: 1 ),
           ),
           margin: EdgeInsets.only(bottom: 12),
           child: Row(
@@ -50,7 +50,7 @@ class _CountryChipState extends State<CountryChip> {
 
               CircleAvatar(
                 radius: 4.w,
-                backgroundColor: AppTheme.primaryClr,
+                backgroundColor: AppTheme.primary500Clr,
               ),
 
               Space(width: 2.w,),

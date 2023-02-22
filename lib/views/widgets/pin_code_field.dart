@@ -37,7 +37,7 @@ class _PinCodeFieldState extends State<PinCodeField> {
 
   @override
   Widget build(BuildContext context) {
-    const focusedBorderColor = AppTheme.primaryClr;
+    const focusedBorderColor = AppTheme.primary500Clr;
 
     final defaultPinTheme = PinTheme(
       width: 25.w,

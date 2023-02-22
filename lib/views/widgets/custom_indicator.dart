@@ -21,8 +21,8 @@ class CustomIndicator extends StatelessWidget {
       effect:  WormEffect(
           dotWidth:  1.h,
           dotHeight: 1.h,
-          dotColor:  AppTheme.primaryClr.withOpacity(0.2),
-          activeDotColor:  AppTheme.primaryClr
+          dotColor:  AppTheme.primary500Clr.withOpacity(0.2),
+          activeDotColor:  AppTheme.primary500Clr
       ),
     );
   }

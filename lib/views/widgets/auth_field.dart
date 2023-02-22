@@ -74,7 +74,7 @@ class _AuthFieldState extends State<AuthField> {
 
               obscureText: widget.obscure && widget.isSecure,
               controller: widget.controller,
-              cursorColor: AppTheme.primaryClr,
+              cursorColor: AppTheme.primary500Clr,
               decoration: InputDecoration(
 
                 isDense: true,
@@ -121,12 +121,12 @@ class _AuthFieldState extends State<AuthField> {
                 ),
 
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: (widget.controller?.text == '')? AppTheme.neutral300: AppTheme.primaryClr,width:1),
+                    borderSide: BorderSide(color: (widget.controller?.text == '')? AppTheme.neutral300: AppTheme.primary500Clr,width:1),
                     borderRadius: BorderRadius.circular(8)
                 ),
 
                 focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: AppTheme.primaryClr,width: 1),
+                    borderSide: const BorderSide(color: AppTheme.primary500Clr,width: 1),
                     borderRadius: BorderRadius.circular(8)
                 ),
 

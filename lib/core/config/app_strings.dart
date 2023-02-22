@@ -99,5 +99,32 @@ class  AppStrings {
   static const String forgetPasswordFourthBodyText1 = "Your password has been changed successfully, we will let you know if there are more problems with your account";
   static const String done = "Done";
 
+  //main main_layout Strings
+  static const String home = "Home";
+  static const String messages = "Messages";
+  static const String applied = "Applied";
+  static const String saved = "Saved";
+  static const String profile = "Profile";
+
+
+  //home page
+  static String homePageAppBarHead(String name) => "Hi,$name 👋";
+  static const String homePageAppBarSubHead = "Create a better future for yourself here";
+  static const String search = "Search....";
+  static const String viewAll = "View all";
+  static const String suggestedJobs = "Suggested Jobs";
+  static const String recentJobs = "Recent Jobs";
+  static const String fullTime = "Full-time";
+  static const String remote = "Remote";
+  static const String design = "Design";
+  static const String month = "/Month";
+  static const String applyNow = "Apply now";
+
+  //search page
+  static const String recentSearches = "Recent searches";
+  static const String popularSearches = "Popular searches";
+
+
+
 
 }
