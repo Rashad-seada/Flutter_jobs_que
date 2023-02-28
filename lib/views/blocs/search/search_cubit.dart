@@ -1,7 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-
+import 'package:sizer/sizer.dart';
+import '../../widgets/bottom_sheet.dart';
 part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
@@ -9,30 +10,43 @@ class SearchCubit extends Cubit<SearchState> {
 
   final TextEditingController searchController = TextEditingController();
 
-  onTextChange(){
-    print('on change text');
-    if(searchController.text.trim().isEmpty){
+
+  openBottomSheet(context){
+
+      showModalBottomSheet(
+          isScrollControlled: true,
+          context: context,
+          builder: (context)=> MainBottomSheet(
+            height: 90.h,
+          ));
+
+
+  }
+
+  onTextChange() {
+    if (searchController.text.trim().isEmpty) {
       getRecentSearch();
       emit(SearchGetRecentSearchs());
-
-    }else{
+    } else {
       getSuggestion();
       emit(SearchGetSuggestions());
-
     }
     //emit(SearchInitial());
   }
 
-  getSuggestion(){
+  getSuggestion() {
 
   }
 
-  getRecentSearch(){
+  getRecentSearch() {
 
   }
 
-  getResult(){
+  getResult() {
+    if (searchController.text.trim().isNotEmpty) {
+      emit(SearchGetResults());
 
+    }
   }
 
 }

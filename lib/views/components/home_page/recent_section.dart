@@ -7,14 +7,21 @@ import '../../widgets/section_header.dart';
 import '../../widgets/space.dart';
 
 class RecentSection extends StatelessWidget {
-  const RecentSection({Key? key}) : super(key: key);
+  bool withHeader;
+
+  RecentSection({
+    this.withHeader = true,
+    Key? key
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
 
-        SectionHeader(sectionTitle: AppStrings.recentJobs),
+        (withHeader)?
+        SectionHeader(sectionTitle: AppStrings.recentJobs)
+            :SizedBox(),
         Space(height: 1.h,),
 
         SizedBox(

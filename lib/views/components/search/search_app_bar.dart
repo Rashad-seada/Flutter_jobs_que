@@ -23,13 +23,17 @@ class SearchAppBar extends StatelessWidget {
 
 
           IconButton(
-            onPressed: ()=> Navigator.pop(context,),
+            onPressed: () {
+              context.read<SearchCubit>().searchController.clear();
+              context.read<SearchCubit>().onTextChange();
+              Navigator.pop(context,);
+            },
             icon: SvgPicture.asset(AppImages.arrow),
           ),
 
           SearchBar(
-            onChanged: (text)=> context.read<SearchCubit>().onTextChange(),
-            onSubmitted: (text)=> context.read<SearchCubit>().getResult(),
+            onChanged: ()=> context.read<SearchCubit>().onTextChange(),
+            onSubmitted: ()=> context.read<SearchCubit>().getResult(),
             controller: context.read<SearchCubit>().searchController,
             width: 76.5.w,
           ),

@@ -25,7 +25,10 @@ class AppImages {
   static const String delete = "images/delete.svg";
   static const String suggestions = "images/suggestions.svg";
   static const String enter = "images/enter.svg";
-
+  static const String filter = "images/filter.svg";
+  static const String clear = "images/clear.svg";
+  static const String company = "images/company.svg";
+  static const String profile = "images/profile.svg";
 
   static String profileIcon({required bool active}){
     if(active) return "images/profile_active.svg";

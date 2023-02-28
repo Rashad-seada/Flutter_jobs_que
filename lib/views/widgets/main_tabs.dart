@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jobs_que/core/config/app_const.dart';
 import 'package:jobs_que/core/config/app_theme.dart';
+import 'package:sizer/sizer.dart';
 import 'custom_text.dart';
 
 class MainTabs extends StatefulWidget {
@@ -95,6 +97,7 @@ class _MainTabsState extends State<MainTabs> with TickerProviderStateMixin{
                       child: CustomText(
                           widget.children[index],
                           color: animations[index].value,
+                          fontSize: AppConsts.subTextSize.sp,
                       )
                   )
                 )),

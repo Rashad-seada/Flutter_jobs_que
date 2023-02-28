@@ -18,3 +18,8 @@ class SearchGetSuggestions extends SearchState {
   @override
   List<Object> get props => [];
 }
+
+class SearchGetResults extends SearchState {
+  @override
+  List<Object> get props => [];
+}

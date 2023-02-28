@@ -123,8 +123,22 @@ class  AppStrings {
   //search page
   static const String recentSearches = "Recent searches";
   static const String popularSearches = "Popular searches";
+  static String featuringJobs(int numberOfJobs) => "Featuring $numberOfJobs+ jobs";
 
-
-
+  //Job screen
+  static const String jobDetail = "Job Detail";
+  static const String description = "Description";
+  static const String company = "Company";
+  static const String people = "People";
+  static const String jobDescription = "Job Description";
+  static const String skillRequired = "Skill Required";
+  static const String contactUs = "Contact Us";
+  static const String aboutCompany = "About Company";
+  static const String showLess = "Show less";
+  static const String showMore = "Show more";
+  static const String website = "Website";
+  static String years(int numberOfYears) => "$numberOfYears years";
+  static String employeesFor(int numberOfEmployers) =>  "$numberOfEmployers Employees For";
+  static const String workDuring = "Work during";
 
 }

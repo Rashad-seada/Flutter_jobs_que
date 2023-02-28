@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobs_que/core/config/app_const.dart';
+import 'package:jobs_que/views/pages/07_result_page.dart';
 import 'package:jobs_que/views/widgets/main_scaffold.dart';
 import 'package:jobs_que/views/widgets/space.dart';
 import 'package:sizer/sizer.dart';
@@ -14,27 +15,35 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
-      child: ListView(
+      child: Scaffold(
+        body: ListView(
+          children: [
 
-        children: [
+            Space(height: AppConsts.appbarSpace.h,),
 
-          Space(height: AppConsts.appbarSpace.h,),
+            SearchAppBar(),
 
-          SearchAppBar(),
+            Space(height: 1.h,),
 
-          Space(height: AppConsts.appbarSpace.h,),
+            BlocConsumer<SearchCubit, SearchState>(
+              listener: (context, state) {
+                // TODO: implement listener
+              },
+              builder: (context, state) {
+                if(state is SearchGetResults)
+                  return ResultPage();
 
-          BlocConsumer<SearchCubit, SearchState>(
-            listener: (context, state) {
-              // TODO: implement listener
-            },
-            builder: (context, state) {
-              return SuggestionsPage();
-            },
-          ),
+                else
+                  return SuggestionsPage();
 
 
-        ],
+              },
+            ),
+
+
+          ],
+        ),
+
       ),
     );
   }

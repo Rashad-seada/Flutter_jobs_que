@@ -9,6 +9,8 @@ import 'package:jobs_que/views/widgets/main_button.dart';
 import 'package:jobs_que/views/widgets/space.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../widgets/company_image.dart';
+
 class SuggestedCard extends StatelessWidget {
   int index;
 
@@ -34,14 +36,9 @@ class SuggestedCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                width: 10.w,
+              CompanyImage(
                 height: 10.w,
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(8),
-                ),
+                width: 10.w,
               ),
 
               Expanded(

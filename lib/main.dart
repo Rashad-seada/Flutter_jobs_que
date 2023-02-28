@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobs_que/views/blocs/auth/auth_cubit.dart';
 import 'package:jobs_que/views/blocs/create_account/create_account_cubit.dart';
+import 'package:jobs_que/views/blocs/job_detail/job_detail_cubit.dart';
 import 'package:jobs_que/views/blocs/main_layout/main_layout_cubit.dart';
 import 'package:jobs_que/views/blocs/on_boarding/on_boarding_cubit.dart';
 import 'package:jobs_que/views/blocs/reset_password/reset_password_cubit.dart';
@@ -45,6 +46,7 @@ class _MyAppState extends State<MyApp> {
             BlocProvider(create: (_) => ResetPasswordCubit()),
             BlocProvider(create: (_) => MainLayoutCubit()),
             BlocProvider(create: (_) => SearchCubit()),
+            BlocProvider(create: (_) => JobDetailCubit()),
 
           ],
 

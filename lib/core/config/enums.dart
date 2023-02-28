@@ -13,3 +13,9 @@ enum Search{
   recent,
   suggestions,
 }
+
+enum StepStatus{
+  isFocused,
+  isNotFocused,
+  isVerified,
+}

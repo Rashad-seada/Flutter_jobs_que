@@ -20,12 +20,13 @@ class SuggestionsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Space(height: 2.h,),
         SuggestionsHeader(title: sectionTitle,),
-        Space(height: 3.h,),
+        Space(height: 2.5.h,),
         SizedBox(
             width: 100.w,
             child: ListView.builder(
-              itemCount: 6,
+              itemCount: 5,
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
                 return SuggestionCard(suggestionType:suggestionType);
