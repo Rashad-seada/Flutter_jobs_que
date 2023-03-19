@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jobs_que/core/config/enums.dart';
+import 'package:jobs_que/core/config/app_enums.dart';
 import 'package:jobs_que/views/blocs/reset_password/reset_password_cubit.dart';
 import 'package:jobs_que/views/screens/02_auth_screen.dart';
 import 'package:jobs_que/views/widgets/custom_page_transition.dart';

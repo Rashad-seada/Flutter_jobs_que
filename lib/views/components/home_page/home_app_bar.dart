@@ -4,6 +4,8 @@ import 'package:jobs_que/core/config/app_const.dart';
 import 'package:jobs_que/core/config/app_images.dart';
 import 'package:jobs_que/core/config/app_strings.dart';
 import 'package:jobs_que/core/config/app_theme.dart';
+import 'package:jobs_que/views/screens/12_notification_screen.dart';
+import 'package:jobs_que/views/widgets/custom_page_transition.dart';
 import 'package:jobs_que/views/widgets/custom_text.dart';
 import 'package:sizer/sizer.dart';
 
@@ -42,9 +44,7 @@ class HomeAppBar extends StatelessWidget {
 
           CircleButton(
             icon: SvgPicture.asset(AppImages.notification),
-            onTap: (){
-
-            },
+            onTap: () => Navigator.push(context, CustomPageTransition(NotificationScreen())),
           )
         ],
       ),

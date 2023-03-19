@@ -5,7 +5,7 @@ import 'package:jobs_que/core/config/app_theme.dart';
 import 'package:sizer/sizer.dart';
 import '../../core/config/app_const.dart';
 import '../../core/config/app_images.dart';
-import '../../core/config/enums.dart';
+import '../../core/config/app_enums.dart';
 
 class AuthField extends StatefulWidget {
   String? hintText;

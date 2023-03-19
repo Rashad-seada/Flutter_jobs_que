@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:jobs_que/core/config/enums.dart';
+import 'package:jobs_que/core/config/app_enums.dart';
 import 'package:jobs_que/core/validator/validator.dart';
 import 'package:jobs_que/views/screens/06_enter_pin_screen.dart';
 import '../../../core/config/app_images.dart';

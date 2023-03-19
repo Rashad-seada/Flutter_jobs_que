@@ -26,8 +26,9 @@ class RecentCard extends StatelessWidget {
       onTap: ()=> Navigator.push(context, CustomPageTransition(JobDetailsScreen())),
       child: Container(
         width: 85.w,
-        height: 13.h,
+        height: 14.h,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Space(height: 1.h,),
 

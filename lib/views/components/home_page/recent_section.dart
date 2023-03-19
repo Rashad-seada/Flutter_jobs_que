@@ -46,7 +46,6 @@ class RecentSection extends StatelessWidget {
               itemCount: 6
           ),
         ),
-
       ],
     );
   }

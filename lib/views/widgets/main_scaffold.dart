@@ -3,8 +3,13 @@ import 'package:sizer/sizer.dart';
 
 class MainScaffold extends StatelessWidget {
   Widget? child;
+  Widget? bottomNavigationBar;
+  Color? backgroundColor;
+
   MainScaffold({
     this.child,
+    this.bottomNavigationBar,
+    this.backgroundColor,
     Key? key
   }) : super(key: key);
 
@@ -12,6 +17,7 @@ class MainScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: backgroundColor,
         body: ListView(
           shrinkWrap: true,
             children: [
@@ -21,6 +27,7 @@ class MainScaffold extends StatelessWidget {
               child: child,
           )]
         ),
+        bottomNavigationBar: bottomNavigationBar,
       ),
     );
   }

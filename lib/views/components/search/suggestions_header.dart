@@ -6,8 +6,10 @@ import 'package:sizer/sizer.dart';
 
 class SuggestionsHeader extends StatelessWidget {
   String title;
+  Alignment alignment;
 
   SuggestionsHeader({
+    this.alignment = Alignment.centerLeft,
     required this.title,
     Key? key
   }) : super(key: key);
@@ -15,8 +17,8 @@ class SuggestionsHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.centerLeft,
-      padding: EdgeInsets.only(left: 7.w),
+      alignment: alignment,
+      padding: EdgeInsets.symmetric(horizontal: 7.w),
       width: 100.w,
       height: 5.h,
       decoration: BoxDecoration(

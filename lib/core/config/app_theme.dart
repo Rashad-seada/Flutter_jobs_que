@@ -11,6 +11,8 @@ class AppTheme {
   static const Color success700 = Color(0xff2E8E18);
 
   static const Color primary100Clr = Color(0xffD6E4FF);
+  static const Color primary300Clr = Color(0xff84A9FF);
+  static const Color primary400Clr = Color(0xff6690FF);
   static const Color primary500Clr = Color(0xff3366FF);
   static const Color primary900Clr = Color(0xff091A7A);
 

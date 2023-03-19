@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobs_que/views/blocs/main_layout/main_layout_cubit.dart';
 import 'package:jobs_que/views/widgets/main_scaffold.dart';
 
-import '../components/main_layout/custom_nav_bar.dart';
+import '../components/main/custom_nav_bar.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class MainScreen extends StatelessWidget {
+  const MainScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

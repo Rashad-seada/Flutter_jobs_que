@@ -18,7 +18,7 @@ class MainBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 100.w,
-      height: 90.h,
+      height: height,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20),),

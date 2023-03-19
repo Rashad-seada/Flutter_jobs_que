@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobs_que/core/config/app_strings.dart';
-import 'package:jobs_que/core/config/enums.dart';
+import 'package:jobs_que/core/config/app_enums.dart';
 import 'package:jobs_que/views/components/search/suggestions_section.dart';
 import 'package:jobs_que/views/widgets/space.dart';
 import 'package:sizer/sizer.dart';

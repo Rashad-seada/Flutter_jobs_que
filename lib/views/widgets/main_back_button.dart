@@ -8,10 +8,13 @@ class MainBackButton extends StatelessWidget {
   String label;
   bool hasLogo;
   EdgeInsets padding;
+  Function()? onDispose;
+
   MainBackButton({
     this.label = '',
     this.hasLogo = false,
     this.padding = const EdgeInsets.all(0),
+    this.onDispose,
     Key? key}) : super(key: key);
 
   @override
@@ -24,7 +27,10 @@ class MainBackButton extends StatelessWidget {
         children: [
 
           IconButton(
-              onPressed: ()=> Navigator.pop(context,),
+              onPressed: () {
+                Navigator.pop(context);
+                onDispose!();
+              },
               icon: SvgPicture.asset(AppImages.arrow)
           ),
 

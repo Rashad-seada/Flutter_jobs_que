@@ -2,11 +2,11 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:jobs_que/core/config/app_strings.dart';
-import 'package:jobs_que/core/config/enums.dart';
+import 'package:jobs_que/core/config/app_enums.dart';
 import 'package:jobs_que/core/validator/validator.dart';
 import '../../screens/02_auth_screen.dart';
 import '../../screens/03_create_account_screen.dart';
-import '../../screens/08_main_layout_screen.dart';
+import '../../screens/08_main_screen.dart';
 import '../../widgets/custom_page_transition.dart';
 part 'auth_state.dart';
 
@@ -101,7 +101,7 @@ class AuthCubit extends Cubit<AuthState> {
       if(signInFormKey.currentState!.validate() == false){
 
       }else
-        Navigator.pushAndRemoveUntil(context, CustomPageTransition(HomeScreen()), (route) => true);
+        Navigator.pushAndRemoveUntil(context, CustomPageTransition(MainScreen()), (route) => true);
 
     }else if(option == AuthOptions.signUp){
       if(signUpFormKey.currentState!.validate() == false){

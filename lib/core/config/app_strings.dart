@@ -79,7 +79,7 @@ class  AppStrings {
   static const String code = "CODE";
   static const String pinHeadText = "Verification";
   static String pinSubText(String email) {
-    return "Enter the code that has been sent to $email";
+    return "Please confirm your account by entering the authorization code sen to ****-****-7234 $email";
   }
   static const String didntReciveIt = "didn't receive code?";
   static const String resendCode = "Resend code";
@@ -140,5 +140,139 @@ class  AppStrings {
   static String years(int numberOfYears) => "$numberOfYears years";
   static String employeesFor(int numberOfEmployers) =>  "$numberOfEmployers Employees For";
   static const String workDuring = "Work during";
+
+  //apply job
+  static const String applyJob = "Apply Job";
+  static const String bioData = "Bio Data";
+  static const String fillYourBio = "Fill in your bio data correctly";
+  static const String answerFewQuestion = "Answer Few Question";
+  static const String answerCorrectly = "Please answer theses Question Correctly";
+  static const String uploadCv = "Upload CV";
+  static const String pleaseUploadCv = "Please upload a CV that related to this job";
+
+  static const String fullName = "Full name*";
+  static const String enterFullName = "Enter full name";
+  static const String enterEmail = "Enter email";
+  static const String phone = "No.mobile-phone*";
+  static const String enterPhone = "Enter phone number";
+  static const String question = "Questions";
+  static const String uploadedCv = "Uploaded CV*";
+  static const String otherFiles = "Other Files*";
+  static const String addFile = "Add File";
+  static const String uploadYourOtherFile = "Upload your other file";
+  static const String maxFileSize = "Max. file size 10 MB";
+  static const String doneText = "Your data has been successfully sent";
+  static const String doneBodyText = "You will get a message from our team, about the announcement of employee acceptance";
+
+  //apply job
+  static const String jobSaved = "Job Saved";
+  static const String beAnEarly = "Be an early applicant";
+  static  String postDaysAgo(int numberOfPosts) => "Posted $numberOfPosts days ago";
+  static const String shareVia = "Share via...";
+  static const String cancelSave = "Cancel save";
+
+  //notification
+  static const String notification = "Notification";
+  static const String today = "Today";
+  static const String yesterday = "Yesterday";
+
+
+  //messages
+  static const String unread = "Unread";
+  static const String spam = "Spam";
+  static const String archived = "Archived";
+  static const String messageFilters = "Message filters";
+  static const String all = "All Chats";
+  static const String writeMessage = "Write a message...";
+
+  //profile
+  static const String reviewed = "Reviewed";
+  static const String contacted = "Contacted";
+  static const String about = "About";
+  static const String edit = "Edit";
+  static const String general = "General";
+  static const String editProfile = "Edit Profile";
+  static const String portfolio = "Portfolio";
+  static const String language = "Language";
+  static const String loginAndSecurity = "Login and security";
+  static const String others = "Others";
+  static const String accessibility = "Accessibility";
+  static const String helpCenter = "Help Center";
+  static const String termsAndConditions = "Terms & Conditions";
+  static const String privacyPolicy = "Privacy Policy";
+  static String profilePercentCompleted(int percent) => "Your Profile is now $percent% complete";
+  static const String improveHiring = "Complete your profile and help good recruiters to find your talent";
+
+  //edit profile
+  static const String name = "Name";
+  static const String bio = "Bio";
+  static const String address = "Address";
+  static const String mobile = "No.Handphone";
+  static const String enterYourInfo = "Enter Your Info";
+  static const String save = "Save";
+
+  //Portfolio
+  static const String addPortfolioHere = "Add portfolio here";
+
+  //language
+  static const String arabic = "Arabic";
+  static const String english = "English";
+  static const String french = "French";
+
+  //notification settings
+  static const String jobNotification = "Job notification";
+  static const String otherNotification = "Other notification";
+  static const String searchAlert = "Your Job Search Alert";
+  static const String applicationUpdate = "Job Application Update";
+  static const String applicationReminder = "Job Application Reminders";
+  static const String interestedIn = "Jobs You May Be Interested In";
+  static const String seekerUpdates = "Job Seeker Updates";
+  static const String showProfile = "Show Profile";
+  static const String allMessages = "All Message";
+  static const String messageNudges = "Message Nudges";
+
+  //login and security
+  static const String accountAccess = "Account access";
+  static const String emailAddress = "Email address";
+  static const String changePassword = "Change password";
+  static const String twoStepVerification = "Two-step verification";
+  static const String fingerPrintUnlock = "Fingerprint unlock";
+
+  //email address
+  static const String mainEmailAddress = "Main e-mail address";
+
+  //change password
+  static const String oldPass = "Old password*";
+  static const String newPass = "New password*";
+  static const String confirmPass = "Confirm password*";
+  static const String enterOldPass = "Enter your old password";
+  static const String enterNewPass = "Enter your new password";
+  static const String confirmNewPass = "Confirm your new password";
+
+  //two step verification
+  static const String hint1 = "Two-step verification provides additional security by asking for a verification code every time you log in on another device.";
+  static const String hint2 = "Adding a phone number or using an authenticator will help keep your account safe from harm.";
+
+  //two step verification confirm
+  static const String addPhoneNumber = "Add phone number";
+  static const String weWillSendVerification = "We will send a verification code to this number";
+
+  //complete profile
+  static const String completeProfile = "Complete Profile";
+  static String stepsCompleted(int stepsCompleted) => "$stepsCompleted/4 Completed";
+  static const String completeYourProfile = "Complete your profile before applying for a job";
+
+  static const String step1Head = "Personal Details";
+  static const String step1SubText = "Full name, email, phone number, and your address";
+
+  static const String step2Head = "Education";
+  static const String step2SubText = "Enter your educational history to be considered by the recruiter";
+
+  static const String step3Head = "Experience";
+  static const String step3SubText = "Enter your work experience to be considered by the recruiter";
+
+  static const String step4Head = "Portfolio";
+  static const String step4SubText = "Create your portfolio. Applying for various types of jobs is easier.";
+
 
 }

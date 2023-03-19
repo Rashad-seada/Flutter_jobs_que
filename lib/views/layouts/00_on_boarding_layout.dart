@@ -9,7 +9,7 @@ import 'package:jobs_que/views/widgets/custom_text.dart';
 import 'package:jobs_que/views/widgets/space.dart';
 import 'package:sizer/sizer.dart';
 import '../../core/config/app_const.dart';
-import '../../core/config/enums.dart';
+import '../../core/config/app_enums.dart';
 import '../blocs/auth/auth_cubit.dart';
 import '../blocs/on_boarding/on_boarding_cubit.dart';
 import '../screens/02_auth_screen.dart';

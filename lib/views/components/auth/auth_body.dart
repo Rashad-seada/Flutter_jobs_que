@@ -7,7 +7,7 @@ import 'package:sizer/sizer.dart';
 import '../../../core/config/app_const.dart';
 import '../../../core/config/app_strings.dart';
 import '../../../core/config/app_theme.dart';
-import '../../../core/config/enums.dart';
+import '../../../core/config/app_enums.dart';
 import '../../blocs/auth/auth_cubit.dart';
 import '../../screens/05_reset_password_screen.dart';
 import '../../widgets/auth_field.dart';

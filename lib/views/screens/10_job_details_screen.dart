@@ -112,10 +112,11 @@ class JobDetailsScreen extends StatelessWidget {
         bottomNavigationBar: Padding(
           padding: EdgeInsets.symmetric(horizontal: 7.w,vertical: 1.h),
           child: MainButton(
+            onTap: ()=> context.read<JobDetailCubit>().onTap(context),
             width: 85.w,
             height: 6.h,
             child:  CustomText(
-              AppStrings.login,
+              AppStrings.applyNow,
               color: AppTheme.textClr,
               fontSize: AppConsts.textSize.sp,
             ),

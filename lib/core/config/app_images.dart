@@ -1,7 +1,6 @@
 
 class AppImages {
 
-
   static const String arrow = "images/arrow.svg";
   static const String logo = "images/logo.svg";
   static const String google = "images/google.svg";
@@ -29,6 +28,34 @@ class AppImages {
   static const String clear = "images/clear.svg";
   static const String company = "images/company.svg";
   static const String profile = "images/profile.svg";
+  static const String circleTick = "images/tick-circle.svg";
+  static const String line = "images/Line.svg";
+  static const String close = "images/close.svg";
+  static const String edite = "images/edit.svg";
+  static const String file = "images/file.svg";
+  static const String fileUpload = "images/file_upload.svg";
+  static const String upload = "images/upload.svg";
+  static const String done = "images/data_illustration.svg";
+  static const String more = "images/more.svg";
+  static const String early = "images/early.svg";
+  static const String rightArrow = "images/broken_arrow.svg";
+  static const String applyJob = "images/apply_job.svg";
+  static const String share = "images/share.svg";
+  static const String send = "images/send.svg";
+  static const String logout = "images/logout.svg";
+  static const String profileBlue = "images/profile_blue.svg";
+  static const String folderBlue = "images/folder_blue.svg";
+  static const String languageBlue = "images/global_blue.svg";
+  static const String notificationBlue = "images/notification_blue.svg";
+  static const String loginAndSecurityBlue = "images/lock_blue.svg";
+  static const String cameraWhite = "images/camera_white.svg";
+  static const String arabic = "images/arabic.svg";
+  static const String english = "images/english.svg";
+  static const String security = "images/security.svg";
+  static const String book = "images/book.svg";
+  static const String circleTickGrey = "images/tick_circle_grey.svg";
+
+
 
   static String profileIcon({required bool active}){
     if(active) return "images/profile_active.svg";
@@ -76,5 +103,7 @@ class AppImages {
     if(active) return "images/profile_bold.svg";
     return "images/profile_inactive.svg";
   }
+
+
 
 }

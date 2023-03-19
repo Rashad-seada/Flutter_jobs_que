@@ -11,13 +11,11 @@ class EnterPinScreen extends StatelessWidget {
     return MainScaffold(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-
+        children: const [
 
           PinHeader(),
 
           PinFooter(),
-
 
         ],
       ),

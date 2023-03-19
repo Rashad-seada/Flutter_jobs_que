@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../../core/config/enums.dart';
+import '../../../core/config/app_enums.dart';
 import '../../screens/02_auth_screen.dart';
 import '../../widgets/custom_page_transition.dart';
 

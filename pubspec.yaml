@@ -32,6 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+
 #regular expression
   regexpattern: 
 
@@ -49,6 +50,7 @@ dependencies:
 
 #api
   dio:
+  http:
 
 #responsive ui
   sizer:
@@ -91,7 +93,7 @@ dependencies:
   shrink_sidemenu:
   readmore:
   badges:
-
+  percent_indicator:
 
 
   # The following adds the Cupertino Icons font to your application.

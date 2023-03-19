@@ -6,7 +6,7 @@ import '../../../core/config/app_const.dart';
 import '../../../core/config/app_images.dart';
 import '../../../core/config/app_strings.dart';
 import '../../../core/config/app_theme.dart';
-import '../../../core/config/enums.dart';
+import '../../../core/config/app_enums.dart';
 import '../../widgets/auth_button.dart';
 import '../../widgets/auth_divider.dart';
 import '../../widgets/clickable_text.dart';

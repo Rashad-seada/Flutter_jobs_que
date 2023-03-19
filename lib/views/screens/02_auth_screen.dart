@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_que/core/config/enums.dart';
+import 'package:jobs_que/core/config/app_enums.dart';
 import '../components/auth/auth_body.dart';
 import '../components/auth/auth_footer.dart';
 import '../widgets/main_scaffold.dart';

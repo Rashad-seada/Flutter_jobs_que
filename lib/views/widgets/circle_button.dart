@@ -23,7 +23,8 @@ class CircleButton extends StatelessWidget {
         height: 13.w,
         decoration: BoxDecoration(
           border: Border.all(color: AppTheme.neutral300,width: 1),
-          shape: BoxShape.circle
+          shape: BoxShape.circle,
+          color: Colors.white
         ),
         child: icon,
       ),
