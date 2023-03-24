@@ -26,7 +26,7 @@ class CompleteProfileStepsSection extends StatelessWidget {
                 child: Container(
                   height: 3.h,
                   width: .3.w,
-                  color: AppTheme.neutral300,
+                  color: AppTheme.neutral200,
                 ),
               );
             },

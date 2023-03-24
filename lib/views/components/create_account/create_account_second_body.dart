@@ -21,9 +21,12 @@ class CreateAccountSecondBody extends StatelessWidget {
       children: [
 
         MainTabs(
-          children: [AppStrings.createAccountThirdOption1,AppStrings.createAccountThirdOption2],
+          children: context.read<CreateAccountCubit>().workOptions,
           width: 85.w,
           height: 5.5.h,
+          onTapChange: (index){
+            context.read<CreateAccountCubit>().selectedOption = index;
+          },
         ),
         
         Space(height: 3.h,),
@@ -48,9 +51,9 @@ class CreateAccountSecondBody extends StatelessWidget {
                     child: SlideAnimation(
                       duration: Duration(milliseconds: 300),
                       child: CountryChip(
-                        index: index,
-                        isSelected: false,
+                        isSelected: context.read<CreateAccountCubit>().countriesSelected[index],
                         country: context.read<CreateAccountCubit>().countries[index],
+                        index: index,
                       ),
                     ),
                   ),

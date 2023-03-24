@@ -8,3 +8,8 @@ class CreateAccountInitial extends CreateAccountState {
   @override
   List<Object> get props => [];
 }
+
+class CreateAccountIsLoading extends CreateAccountState {
+  @override
+  List<Object> get props => [];
+}

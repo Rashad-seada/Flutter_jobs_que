@@ -9,13 +9,16 @@ import 'package:jobs_que/views/widgets/main_button.dart';
 import 'package:jobs_que/views/widgets/space.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../domain/entities/jobs/suggested_jobs_entity.dart';
 import '../../widgets/company_image.dart';
 
 class SuggestedCard extends StatelessWidget {
   int index;
+  SuggestedJob job;
 
   SuggestedCard({
     required this.index,
+    required this.job,
     Key? key
   }) : super(key: key);
 
@@ -39,6 +42,7 @@ class SuggestedCard extends StatelessWidget {
               CompanyImage(
                 height: 10.w,
                 width: 10.w,
+                imageUrl: job.image,
               ),
 
               Expanded(
@@ -49,14 +53,14 @@ class SuggestedCard extends StatelessWidget {
                     children: [
 
                       CustomText(
-                        "Product Designer",
+                        "${job.jobType}",
                         color: (this.index == 0)? Colors.white : AppTheme.neutral900,
                         fontSize:  AppConsts.textSize.sp ,
                       ),
                       Space(height: 1.5,),
 
                       CustomText(
-                        "Zoom • United States",
+                        "${job.compName} • ${job.location}",
                         color: AppTheme.neutral400,
                         fontSize: AppConsts.subTextSize.sp,
 
@@ -84,7 +88,7 @@ class SuggestedCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: CustomText(
-                      'remote',
+                    "${job.jobTimeType}",
                     color: (this.index == 0)? Colors.white : AppTheme.primary500Clr,
                   ),
                 )
@@ -98,7 +102,7 @@ class SuggestedCard extends StatelessWidget {
               Row(
                 children: [
                   CustomText(
-                    "\$75k",
+                    "${job.salary}/${AppStrings.month}",
                     color: (index == 0)? Colors.white : AppTheme.success700,
                     fontSize: AppConsts.textSize.sp + 5.sp,
                   ),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobs_que/core/config/app_enums.dart';
+import 'package:jobs_que/views/blocs/auth/auth_cubit.dart';
+import '../blocs/core/core_cubit.dart';
 import '../components/auth/auth_body.dart';
 import '../components/auth/auth_footer.dart';
 import '../widgets/main_scaffold.dart';
@@ -15,15 +18,24 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
+      child: BlocConsumer<AuthCubit, AuthState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
 
-          AuthBody(option: option,),
+              AnimatedSwitcher(
+                  duration:Duration(milliseconds: 1000),
+                  child: AuthBody()),
 
-          AuthFooter(option: option,),
+              AnimatedSwitcher(
+                  duration:Duration(milliseconds: 1000),
+                  child: AuthFooter()),
 
-        ],
+            ],
+          );
+        },
       ),
     );
   }

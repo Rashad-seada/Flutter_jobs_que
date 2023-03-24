@@ -42,7 +42,7 @@ class AppTheme {
     brightness: Brightness.light, colorScheme: ColorScheme.light(background: Colors.white)
   );
 
-  static ThemeMode? getThemeMode(){
+  static ThemeMode getThemeMode(){
     return ThemeMode.light;
   }
 

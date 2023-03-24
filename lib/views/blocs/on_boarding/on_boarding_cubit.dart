@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jobs_que/views/blocs/auth/auth_cubit.dart';
 
 import '../../../core/config/app_enums.dart';
 import '../../screens/02_auth_screen.dart';
@@ -21,7 +23,7 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
 
   void onTapButton(BuildContext context){
     if(index == 2){
-      Navigator.push(context, CustomPageTransition(AuthScreen(option: AuthOptions.signUp,)));
+      Navigator.push(context, CustomPageTransition(AuthScreen(option: context.read<AuthCubit>().authOptions,)));
     }else{
       controller.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.fastLinearToSlowEaseIn);
     }

@@ -34,8 +34,9 @@ class CreateAccountFirstBody extends StatelessWidget {
                       child: SlideAnimation(
                         duration: Duration(milliseconds: 300),
                         child: FieldCard(
-                          isSelected: context.read<CreateAccountCubit>().s[index],
+                          isSelected: context.read<CreateAccountCubit>().workFieldSelected[index],
                           index: index,
+                          field: context.read<CreateAccountCubit>().workFields[index],
                         )
                       ),
                     ),

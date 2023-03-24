@@ -1,13 +1,20 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:jobs_que/core/config/app_strings.dart';
 import 'package:jobs_que/core/config/app_enums.dart';
 import 'package:jobs_que/core/validator/validator.dart';
-import '../../screens/02_auth_screen.dart';
+import 'package:jobs_que/domain/usecases/auth/login_usecase.dart';
+import 'package:jobs_que/domain/usecases/auth/register_usecase.dart';
+import '../../../core/config/app_images.dart';
+import '../../../data/data_source/local_data_source/auth/auth_local_data_source.dart';
 import '../../screens/03_create_account_screen.dart';
 import '../../screens/08_main_screen.dart';
 import '../../widgets/custom_page_transition.dart';
+import '../../widgets/custom_snack_bar.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
@@ -18,15 +25,17 @@ class AuthCubit extends Cubit<AuthState> {
   TextEditingController emailController = TextEditingController(text: '');
   TextEditingController passwordController = TextEditingController(text: '');
 
-  GlobalKey<FormState> signUpFormKey = GlobalKey<FormState>();
-  GlobalKey<FormState> signInFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _signUpFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _signInFormKey = GlobalKey<FormState>();
+  final GlobalKey<ScaffoldMessengerState> scaffoldKey = GlobalKey<ScaffoldMessengerState>();
+  AuthOptions authOptions = AuthOptions.signIn;
 
   late bool isChecked ;
   final ValidatorImpl _validator = ValidatorImpl();
 
   GlobalKey<FormState> getFormKey(AuthOptions option){
-    if(option == AuthOptions.signIn) return signInFormKey;
-    return signUpFormKey;
+    if(option == AuthOptions.signIn) return _signInFormKey;
+    return _signUpFormKey;
   }
 
   authType(AuthOptions option){
@@ -39,39 +48,30 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   String? isEmailValid(){
-    emit(AuthFormFieldsIsChanging());
     if(emailController.text.isEmpty) {
-      emit(AuthInitial());
       return AppStrings.enterYour(AppStrings.email);
     }
     if(_validator.isEmail(emailController.text.trim())) {
-      emit(AuthInitial());
       return AppStrings.enterAValid(AppStrings.email);
     }
     return null;
   }
 
   String? isUsernameValid(){
-    emit(AuthFormFieldsIsChanging());
     if(userNameController.text.isEmpty) {
-      emit(AuthInitial());
       return AppStrings.enterYour(AppStrings.username);
     }
     if(_validator.isUsername(userNameController.text.trim())) {
-      emit(AuthInitial());
       return AppStrings.enterAValid(AppStrings.username);
     }
     return null;
   }
 
   String? isPasswordValid(){
-    emit(AuthFormFieldsIsChanging());
     if(passwordController.text.isEmpty) {
-      emit(AuthInitial());
       return AppStrings.enterAValid(AppStrings.password);
     }
     if(_validator.isPassword(passwordController.text.trim())) {
-      emit(AuthInitial());
       return AppStrings.createAccountFirstBodyText2;
     }
     return null;
@@ -96,29 +96,84 @@ class AuthCubit extends Cubit<AuthState> {
 
   }
 
-  void onButtonTap(context,AuthOptions option){
+  void onButtonTap(context,AuthOptions option) async{
+    emit(AuthLoading());
+    
     if(option == AuthOptions.signIn){
-      if(signInFormKey.currentState!.validate() == false){
-
-      }else
-        Navigator.pushAndRemoveUntil(context, CustomPageTransition(MainScreen()), (route) => true);
+      if(_signInFormKey.currentState!.validate() == false){
+        emit(AuthInitial());
+      }else {
+        await signIn(context);
+        emit(AuthIsSignIn());
+        emit(AuthInitial());
+      }
 
     }else if(option == AuthOptions.signUp){
-      if(signUpFormKey.currentState!.validate() == false){
+      if(_signUpFormKey.currentState!.validate() == false){
+        emit(AuthInitial());
+      }else{
 
-      }else
-          Navigator.pushAndRemoveUntil(context, CustomPageTransition(CreateAccountScreen()), (route) => true);
+        await signUp(context);
+        emit(AuthIsSignUp());
+        emit(AuthInitial());
+      }
 
     }
   }
 
-  void onTextTap(context,options){
-    _clearTextControllers();
-    if(options == AuthOptions.signUp)
-        Navigator.push(context, CustomPageTransition(AuthScreen(option: AuthOptions.signIn,)));
-    else
-        Navigator.pop(context);
+  signIn(BuildContext context) async {
+    await LoginUsecase().call(
+        LoginParams(
+          email: emailController.text.trim(),
+          password: passwordController.text,
+        )).then((value) => value.bimap(
+          (error) {
+        ScaffoldMessenger.of(context).showSnackBar(customSnackBar(context,message: error.message, iconImage: AppImages.error,));
+      },
+          (success) {
+        if (success.status == true) {
+          Navigator.push(context, CustomPageTransition(MainScreen()));
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(customSnackBar(context,message: "please check your email and password", iconImage: AppImages.wrong,));
+        }
+      },
+    )
+    );
+  }
 
+  signUp(BuildContext context) async {
+    await RegisterUsecase().call(RegistrationParams(
+        name: userNameController.text.trim(),
+        email: emailController.text.trim(),
+        password: passwordController.text
+    )).then((value) => value.bimap(
+            (error) {
+          ScaffoldMessenger.of(context).showSnackBar(customSnackBar(context,message: error.message, iconImage: AppImages.error,));
+        },
+            (success) {
+          if (success.status == true) {
+            Navigator.push(context, CustomPageTransition(CreateAccountScreen()));
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(customSnackBar(context,message: "please check your data and try again", iconImage: AppImages.wrong,));
+          }
+        }
+    )
+    );
+  }
+
+  void onTextTap(){
+    //_clearTextControllers();
+    if(authOptions == AuthOptions.signUp) {
+      emit(AuthIsSignUp());
+      emit(AuthInitial());
+      authOptions = AuthOptions.signIn;
+    }
+    else {
+      emit(AuthIsSignIn());
+      emit(AuthInitial());
+      authOptions = AuthOptions.signUp;
+    }
+    print(authOptions);
   }
 
 

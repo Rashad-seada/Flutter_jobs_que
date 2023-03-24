@@ -1,8 +1,8 @@
+
 import 'package:flutter/material.dart';
-import 'package:jobs_que/core/config/app_images.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobs_que/core/config/app_theme.dart';
-import 'package:jobs_que/views/screens/04_message_screen.dart';
-import 'package:jobs_que/views/widgets/custom_page_transition.dart';
+import 'package:jobs_que/views/blocs/create_account/create_account_cubit.dart';
 import 'package:jobs_que/views/widgets/custom_text.dart';
 import 'package:jobs_que/views/widgets/main_button.dart';
 import 'package:sizer/sizer.dart';
@@ -20,7 +20,6 @@ class CreateAccountScreen extends StatefulWidget {
 }
 
 class _CreateAccountScreenState extends State<CreateAccountScreen> {
-  PageController controller = PageController();
   int currentIndex = 0;
 
   @override
@@ -36,7 +35,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 currentIndex = index;
               });
             },
-            controller: controller,
+            controller: context.read<CreateAccountCubit>().pageController,
             children: [
               CreateAccountPage(
                 headText: AppStrings.createAccountSecondHeadText,
@@ -51,36 +50,26 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             ],
           ),
 
-          Padding(
-            padding: EdgeInsets.only(bottom: 3.h),
-            child: MainButton(
-              onTap: (){
+          BlocConsumer<CreateAccountCubit,CreateAccountState>(
+            listener: (context, state) {
 
-                if(currentIndex == 1){
-
-                  Navigator.push(context, CustomPageTransition(
-                      MessageScreen(
-                        image: AppImages.accountCreatedSuccessfully,
-                        headText: AppStrings.createAccountFourthHeadText,
-                        subText: AppStrings.createAccountFourthBodyText1,
-                        buttonLable: AppStrings.getStarted,
-                        onTap: (){},
+            },
+            builder: (context, state) {
+              return Padding(
+                      padding: EdgeInsets.only(bottom: 3.h),
+                      child: MainButton(
+                        isLoading: (state is CreateAccountIsLoading)? true : false,
+                        onTap: () => context.read<CreateAccountCubit>().onButtonTap(currentIndex: currentIndex, context: context),
+                        width: 85.w,
+                        height: 6.5.h,
+                        child: CustomText(
+                          (currentIndex == 1)?AppStrings.done:AppStrings.next,
+                          color: AppTheme.textClr,
+                          fontSize: AppConsts.textSize.sp,
+                        ),
                       ),
-
-                  ));
-                }else{
-                  controller.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.fastLinearToSlowEaseIn);
-                }
-
-              },
-              width: 85.w,
-              height: 6.5.h,
-              child: CustomText(
-                (currentIndex == 1)?AppStrings.done:AppStrings.next,
-                color: AppTheme.textClr,
-                fontSize: AppConsts.textSize.sp,
-              ),
-            ),
+                    );
+            },
           )
         ],
       ),

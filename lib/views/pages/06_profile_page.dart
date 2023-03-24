@@ -4,6 +4,7 @@ import 'package:jobs_que/core/config/app_images.dart';
 import 'package:jobs_que/core/config/app_strings.dart';
 import 'package:jobs_que/views/blocs/complete_profile/complete_profile_cubit.dart';
 import 'package:jobs_que/views/screens/14_edit_profile_screen.dart';
+import 'package:jobs_que/views/screens/25_experience_screen.dart';
 import 'package:jobs_que/views/widgets/main_scaffold.dart';
 import 'package:jobs_que/views/widgets/space.dart';
 import 'package:sizer/sizer.dart';
@@ -18,6 +19,7 @@ import '../screens/15_portifolio_screen.dart';
 import '../screens/16_language_screen.dart';
 import '../screens/17_notification_settings_screen.dart';
 import '../screens/18_login_and_security_screen.dart';
+import '../screens/24_education_screen.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -38,13 +40,22 @@ class ProfilePage extends StatelessWidget {
           const ProfileAbout(),
           Space(height: 4.h,),
 
-          CompleteProfileCard(percent: context.read<CompleteProfileCubit>().totalSteps * 25,),
+          BlocConsumer<CompleteProfileCubit, CompleteProfileState>(
+            listener: (context, state) {
+            },
+            builder: (context, state) {
+              print(context.read<CompleteProfileCubit>().totalSteps);
+              return CompleteProfileCard(percent: context.read<CompleteProfileCubit>().totalSteps * 25,);
+            },
+          ),
           Space(height: 4.h,),
 
           SettingSection(
             title: AppStrings.general,
             settingsCards: [
               SettingCard(title: AppStrings.editProfile,image: AppImages.profileBlue,screenToGo: const EditProfileScreen(),),
+              SettingCard(title: AppStrings.education,image: AppImages.education,screenToGo: const EducationScreen(),),
+              SettingCard(title: AppStrings.experience,image: AppImages.experience,screenToGo: const ExperienceScreen(),),
               SettingCard(title: AppStrings.portfolio,image: AppImages.folderBlue,screenToGo: const PortfolioScreen(),),
               SettingCard(title: AppStrings.language,image: AppImages.languageBlue,screenToGo: const LanguageScreen(),),
               SettingCard(title: AppStrings.notification,image: AppImages.notificationBlue,screenToGo:const NotificationSettingsScreen()),

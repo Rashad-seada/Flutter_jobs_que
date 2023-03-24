@@ -5,18 +5,20 @@ class MainScaffold extends StatelessWidget {
   Widget? child;
   Widget? bottomNavigationBar;
   Color? backgroundColor;
+  Key? key;
 
   MainScaffold({
     this.child,
     this.bottomNavigationBar,
     this.backgroundColor,
-    Key? key
-  }) : super(key: key);
+    this.key
+  });
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        key: key,
         backgroundColor: backgroundColor,
         body: ListView(
           shrinkWrap: true,

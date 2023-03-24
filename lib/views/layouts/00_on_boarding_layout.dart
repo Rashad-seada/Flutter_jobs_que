@@ -64,8 +64,9 @@ class OnBoardingLayout extends StatelessWidget {
               width: 85.w,
               height: 6.5.h,
               child: CustomText(
-                (context.read<OnBoardingCubit>().index == 2)? AppStrings.getStarted:
-                AppStrings.next,
+                (context.read<OnBoardingCubit>().index == 2)
+                    ? AppStrings.getStarted
+                    : AppStrings.next,
                 color: AppTheme.textClr,
                 fontSize: AppConsts.textSize.sp,
               ),

@@ -16,10 +16,8 @@ import '../../widgets/main_back_button.dart';
 import '../../widgets/space.dart';
 
 class AuthBody extends StatelessWidget {
-  AuthOptions option;
 
   AuthBody({
-    required this.option,
     Key? key,
   }) : super(key: key);
 
@@ -46,7 +44,7 @@ class AuthBody extends StatelessWidget {
               Row(
                 children: [
                   CustomText(
-                    (option == AuthOptions.signUp)
+                    (context.read<AuthCubit>().authOptions == AuthOptions.signUp)
                         ? AppStrings.createAccountFirstHeadText
                         : AppStrings.login,
                     fontSize: AppConsts.subHeadTextSize.sp,
@@ -60,7 +58,7 @@ class AuthBody extends StatelessWidget {
               Row(
                 children: [
                   CustomText(
-                    (option == AuthOptions.signUp)
+                    (context.read<AuthCubit>().authOptions == AuthOptions.signUp)
                         ? AppStrings.createAccountFirstBodyText1
                         : AppStrings.signInBodyText1,
                     fontSize: AppConsts.textSize.sp,
@@ -70,14 +68,14 @@ class AuthBody extends StatelessWidget {
               ),
 
               Space(
-                height: (option == AuthOptions.signUp) ? 5.h : 3.5.h,
+                height: (context.read<AuthCubit>().authOptions == AuthOptions.signUp) ? 5.h : 3.5.h,
               ),
 
               Form(
-                  key: context.read<AuthCubit>().getFormKey(option),
+                  key: context.read<AuthCubit>().getFormKey(context.read<AuthCubit>().authOptions),
                   child: Column(
                     children: [
-                      (option == AuthOptions.signUp)
+                      (context.read<AuthCubit>().authOptions == AuthOptions.signUp)
                       ? AuthField(
                           onChange: () => context.read<AuthCubit>().isUsernameValid(),
                           validator: (text) => context.read<AuthCubit>().isUsernameValid(),
@@ -113,11 +111,11 @@ class AuthBody extends StatelessWidget {
                     ],
                   )),
               Space(
-                height: (option == AuthOptions.signUp) ? 2.h : 2.h,
+                height: (context.read<AuthCubit>().authOptions == AuthOptions.signUp) ? 2.h : 2.h,
               ),
 
 
-              (option == AuthOptions.signIn)
+              (context.read<AuthCubit>().authOptions == AuthOptions.signIn)
               ? Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

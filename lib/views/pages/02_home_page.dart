@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jobs_que/views/blocs/home/home_cubit.dart';
 import 'package:jobs_que/views/widgets/custom_page_transition.dart';
 import 'package:jobs_que/views/widgets/main_scaffold.dart';
 import 'package:sizer/sizer.dart';
@@ -16,30 +18,40 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
-      child: ListView(
-        children: [
+        child: BlocConsumer<HomeCubit,HomeState>(
+          listener: (context, state) {
+            // TODO: implement listener
+          },
+          builder: (context, state) {
+            return ListView(
+              shrinkWrap: true,
+              children: [
 
-          Space(height: AppConsts.appbarSpace.h,),
+                Space(height: AppConsts.appbarSpace.h,),
 
-          HomeAppBar(),
-          Space(height: 3.h,),
+                HomeAppBar(),
+                Space(height: 3.h),
 
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 7.w),
-            child: SearchBar(
-              onTap: ()=>Navigator.push(context, CustomPageTransition(SearchScreen())),
-              keyboardType: TextInputType.none,
-            ),
-          ),
-          Space(height: 2.5.h,),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 7.w),
+                  child: SearchBar(
+                    onTap: () =>
+                        Navigator.push(
+                            context, CustomPageTransition(SearchScreen())),
+                    keyboardType: TextInputType.none,
+                  ),
+                ),
+                Space(height: 2.5.h),
 
-          SuggestedSection(),
-          Space(height: 2.h,),
+                SuggestedSection(),
+                Space(height: 2.h),
 
-          RecentSection()
+                RecentSection(),
 
-        ],
-      )
+              ],
+            );
+          },
+        )
     );
   }
 }

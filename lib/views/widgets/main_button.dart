@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobs_que/core/config/app_theme.dart';
+import 'package:sizer/sizer.dart';
 
 class MainButton extends StatefulWidget {
   double? width;
@@ -8,6 +9,8 @@ class MainButton extends StatefulWidget {
   Color borderColor;
   Widget? child;
   Function()? onTap;
+  bool? isLoading;
+
   MainButton({
     this.width,
     this.height,
@@ -15,6 +18,7 @@ class MainButton extends StatefulWidget {
     this.borderColor = Colors.transparent,
     this.child,
     this.onTap,
+    this.isLoading,
     Key? key,
   }) : super(key: key);
 
@@ -65,7 +69,10 @@ class _MainButtonState extends State<MainButton> with SingleTickerProviderStateM
           border: Border.all(color: widget.borderColor)
         ),
         duration: const Duration(milliseconds: 500),
-        child: widget.child,
+        child: (widget.isLoading == true)? SizedBox(
+            height: 2.6.h,
+            width: 2.6.h,
+            child: CircularProgressIndicator(color: Colors.white,)) :widget.child,
       ),
     );
   }

@@ -8,10 +8,11 @@ import 'cached_image.dart';
 class CompanyImage extends StatelessWidget {
   double? width;
   double? height;
-
+  String? imageUrl;
   CompanyImage({
     this.width,
     this.height,
+    this.imageUrl,
     Key? key
   }) : super(key: key);
 
@@ -27,7 +28,7 @@ class CompanyImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: CachedImage(
-        imageUrl: "https://download.logo.wine/logo/Apple_Inc./Apple_Inc.-Logo.wine.png",
+        imageUrl: "$imageUrl",
         errorWidget: (context,text,error) => Padding(
           padding: const EdgeInsets.all(10),
           child: SvgPicture.asset(AppImages.company),

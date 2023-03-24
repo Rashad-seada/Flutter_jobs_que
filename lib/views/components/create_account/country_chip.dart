@@ -10,7 +10,7 @@ import '../../widgets/custom_text.dart';
 class CountryChip extends StatefulWidget {
   bool isSelected;
   int index;
-  String country;
+  Country country;
 
   CountryChip({
     required this.index,
@@ -30,7 +30,7 @@ class _CountryChipState extends State<CountryChip> {
     return GestureDetector(
         onTap: (){
           setState((){widget.isSelected = !widget.isSelected;});
-          //context.read<CreateAccountCubit>().s[widget.index] = !context.read<CreateAccountCubit>().s[widget.index] ;
+          context.read<CreateAccountCubit>().countriesSelected[widget.index] = !context.read<CreateAccountCubit>().countriesSelected[widget.index] ;
         },
 
         child: AnimatedContainer(
@@ -55,7 +55,7 @@ class _CountryChipState extends State<CountryChip> {
 
               Space(width: 2.w,),
 
-              CustomText(widget.country,fontSize: AppConsts.textSize.sp - 1.sp,color: AppTheme.neutral900,),
+              CustomText(widget.country.countryName,fontSize: AppConsts.textSize.sp - 1.sp,color: AppTheme.neutral900,),
 
             ],
           ),

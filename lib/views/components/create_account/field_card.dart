@@ -9,9 +9,12 @@ import '../../blocs/create_account/create_account_cubit.dart';
 class FieldCard extends StatefulWidget {
   bool isSelected;
   int index;
+  WorkField field;
+
   FieldCard({
     this.index = 0,
     this.isSelected = false,
+    required this.field,
     Key? key
   }) : super(key: key);
 
@@ -26,12 +29,12 @@ class _FieldCardState extends State<FieldCard> {
       borderRadius: BorderRadius.circular(12),
       onTap: (){
         setState((){widget.isSelected = !widget.isSelected;});
-        context.read<CreateAccountCubit>().s[widget.index] = !context.read<CreateAccountCubit>().s[widget.index] ;
+        context.read<CreateAccountCubit>().workFieldSelected[widget.index] = !context.read<CreateAccountCubit>().workFieldSelected[widget.index] ;
       },
       child: AnimatedContainer(
         width: 40.w,
         height: 15.h,
-        alignment: Alignment.center,
+        alignment: Alignment.centerLeft,
         padding: const EdgeInsets.all(15),
         duration: const Duration(milliseconds: 400),
         decoration: BoxDecoration(
@@ -56,7 +59,7 @@ class _FieldCardState extends State<FieldCard> {
             ),
 
             CustomText(
-                "Information Technology",
+                widget.field.fieldName,
                 color: AppTheme.neutral900,
                 fontSize: AppConsts.textSize.sp,
                 maxLines: 2,
