@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,7 +19,9 @@ import 'package:jobs_que/views/screens/00_splash_screen.dart';
 import 'package:sizer/sizer.dart';
 import 'core/config/app_theme.dart';
 
-void main() {
+void main() async{
+
+
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     systemNavigationBarIconBrightness: Brightness.dark,
     systemNavigationBarColor: Colors.white,
@@ -27,6 +30,9 @@ void main() {
   ));
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
+
+
+
 }
 
 class MyApp extends StatefulWidget {

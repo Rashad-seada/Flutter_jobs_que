@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobs_que/core/config/app_const.dart';
 import 'package:jobs_que/core/config/app_strings.dart';
 import 'package:jobs_que/views/widgets/custom_text_field.dart';
@@ -8,6 +9,7 @@ import 'package:jobs_que/views/widgets/space.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../core/config/app_theme.dart';
+import '../blocs/complete_profile/complete_profile_cubit.dart';
 import '../components/apply_job/phone_number_field.dart';
 import '../components/edit_profile/profile_image_picker.dart';
 import '../widgets/custom_text.dart';
@@ -52,7 +54,7 @@ class EditProfileScreen extends StatelessWidget {
                 Space(height: 1.h,),
                 CustomTextField(
                   iconIsActive: false,
-                  hintText: AppStrings.enterYourInfo,
+                  hintText: AppStrings.enterYourInfo, suffixIcon: null,
                 ),
                 Space(height: 1.8.h,),
 
@@ -101,6 +103,7 @@ class EditProfileScreen extends StatelessWidget {
 
           Space(height: 12.h,),
           MainButton(
+            onTap: ()=> context.read<CompleteProfileCubit>().step1Validate(context),
             height: 7.h,
             width: 85.w,
             child: CustomText(

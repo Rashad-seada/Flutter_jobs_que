@@ -11,13 +11,15 @@ class CustomTextField extends StatefulWidget {
   String? hintText;
   String? labelText;
   Widget? prefixIcon;
+  Widget? suffixIcon;
   bool? iconIsActive;
   TextEditingController? controller;
   bool isSecure;
   Function()? onChange;
   FormFieldValidator<String>? validator;
   Key? key;
-
+  Function()? onTap;
+  TextInputType? keyboardType;
 
   CustomTextField({
     this.hintText,
@@ -28,8 +30,11 @@ class CustomTextField extends StatefulWidget {
     this.isSecure = false,
     this.onChange,
     this.validator,
-    this.key}
-      );
+    this.key,
+    this.onTap,
+    this.keyboardType,
+    this.suffixIcon,
+  });
 
   bool obscure = true;
 
@@ -43,6 +48,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: widget.onTap,
+      keyboardType: widget.keyboardType,
       validator: widget.validator,
       style: TextStyle(
         color: AppTheme.neutral900,
@@ -64,7 +71,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
         prefixIcon: widget.prefixIcon,
 
-        suffixIcon: (widget.isSecure)? Padding(
+        suffixIcon: (widget.isSecure && widget.suffixIcon == null)? Padding(
           padding: const EdgeInsets.only(right: 5),
           child: IconButton(
             onPressed: () {
@@ -74,7 +81,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             },
             icon: SvgPicture.asset(AppImages.eyeIcon(active: !widget.obscure)),),
         )
-            :null,
+            :widget.suffixIcon,
 
         hintText: widget.hintText,
         labelText: widget.labelText,

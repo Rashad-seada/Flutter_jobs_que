@@ -54,7 +54,10 @@ class AppImages {
   static const String security = "images/security.svg";
   static const String book = "images/book.svg";
   static const String circleTickGrey = "images/tick_circle_grey.svg";
-
+  static const String calendar = "images/calendar.svg";
+  static const String location = "images/location.svg";
+  static const String education = "images/education.svg";
+  static const String experience = "images/experience.svg";
 
 
   static String profileIcon({required bool active}){

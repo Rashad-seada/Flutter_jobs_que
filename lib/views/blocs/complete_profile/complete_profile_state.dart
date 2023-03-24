@@ -8,3 +8,8 @@ class CompleteProfileInitial extends CompleteProfileState {
   @override
   List<Object> get props => [];
 }
+
+class CompleteProfileValidate extends CompleteProfileState {
+  @override
+  List<Object> get props => [];
+}

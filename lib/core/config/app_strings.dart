@@ -261,18 +261,28 @@ class  AppStrings {
   static const String completeProfile = "Complete Profile";
   static String stepsCompleted(int stepsCompleted) => "$stepsCompleted/4 Completed";
   static const String completeYourProfile = "Complete your profile before applying for a job";
-
   static const String step1Head = "Personal Details";
   static const String step1SubText = "Full name, email, phone number, and your address";
-
   static const String step2Head = "Education";
   static const String step2SubText = "Enter your educational history to be considered by the recruiter";
-
   static const String step3Head = "Experience";
   static const String step3SubText = "Enter your work experience to be considered by the recruiter";
-
   static const String step4Head = "Portfolio";
   static const String step4SubText = "Create your portfolio. Applying for various types of jobs is easier.";
+
+  //Education
+  static const String education = "Education";
+  static const String university = "University";
+  static const String title = "Title";
+  static const String startYear = "Start Year";
+  static const String endYear = "End Year";
+
+  //Experience
+  static const String experience = "Experience";
+  static const String position = "Position";
+  static const String typeOfWork = "Type of work";
+  static const String companyName = "Company name";
+  static const String location = "Location";
 
 
 }
