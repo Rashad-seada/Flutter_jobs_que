@@ -32,13 +32,11 @@ class AppTheme {
 
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
-    fontFamily: "SF Pro Display",
     brightness: Brightness.dark,
   );
 
   static ThemeData theme = ThemeData(
     useMaterial3: true,
-    fontFamily: "SF Pro Display",
     brightness: Brightness.light, colorScheme: ColorScheme.light(background: Colors.white)
   );
 

@@ -9,15 +9,19 @@ import 'package:jobs_que/views/blocs/auth/auth_cubit.dart';
 import 'package:jobs_que/views/blocs/complete_profile/complete_profile_cubit.dart';
 import 'package:jobs_que/views/blocs/core/core_cubit.dart';
 import 'package:jobs_que/views/blocs/create_account/create_account_cubit.dart';
+import 'package:jobs_que/views/blocs/home/home_cubit.dart';
 import 'package:jobs_que/views/blocs/job_detail/job_detail_cubit.dart';
 import 'package:jobs_que/views/blocs/language/language_cubit.dart';
 import 'package:jobs_que/views/blocs/main_layout/main_layout_cubit.dart';
 import 'package:jobs_que/views/blocs/message/message_cubit.dart';
 import 'package:jobs_que/views/blocs/on_boarding/on_boarding_cubit.dart';
 import 'package:jobs_que/views/blocs/profile/profile_cubit.dart';
+import 'package:jobs_que/views/blocs/recent_jobs/recent_jobs_cubit.dart';
 import 'package:jobs_que/views/blocs/reset_password/reset_password_cubit.dart';
 import 'package:jobs_que/views/blocs/saved/saved_cubit.dart';
 import 'package:jobs_que/views/blocs/search/search_cubit.dart';
+import 'package:jobs_que/views/blocs/suggested_jobs/suggested_jobs_cubit.dart';
+import 'package:jobs_que/views/blocs/suggestion/suggestion_cubit.dart';
 import 'package:jobs_que/views/screens/00_splash_screen.dart';
 import 'package:sizer/sizer.dart';
 import 'core/config/app_const.dart';
@@ -72,6 +76,11 @@ class _MyAppState extends State<MyApp> {
             BlocProvider(create: (_) => ProfileCubit()),
             BlocProvider(create: (_) => LanguageCubit()),
             BlocProvider(create: (_) => CompleteProfileCubit()),
+            BlocProvider(create: (_) => HomeCubit()),
+            BlocProvider(create: (_) => RecentJobsCubit()),
+            BlocProvider(create: (_) => SuggestedJobsCubit()),
+            BlocProvider(create: (_) => SuggestionCubit()),
+
           ],
           child: MaterialApp(
               debugShowCheckedModeBanner: false,

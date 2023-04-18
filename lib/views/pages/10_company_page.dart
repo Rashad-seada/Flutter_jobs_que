@@ -10,7 +10,15 @@ import '../widgets/read_more.dart';
 import '../widgets/space.dart';
 
 class CompanyPage extends StatelessWidget {
-  const CompanyPage({Key? key}) : super(key: key);
+  String email;
+  String website;
+  String aboutCompany;
+
+  CompanyPage({
+    required this.email,
+    required this.website,
+    required this.aboutCompany,
+    Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +42,8 @@ class CompanyPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ContactCard(contactMethod: AppStrings.email, contact: "rashadatef2@gmail.com"),
-              ContactCard(contactMethod: AppStrings.website, contact: "https://twitter.com"),
+              ContactCard(contactMethod: AppStrings.email, contact: email),
+              ContactCard(contactMethod: AppStrings.website, contact: website),
             ],
           ),
 
@@ -49,7 +57,7 @@ class CompanyPage extends StatelessWidget {
           ),
 
           Space(height: 1.5.h,),
-          ReadMore(),
+          ReadMore(text: aboutCompany,),
           Space(height: 6.h,),
 
         ],

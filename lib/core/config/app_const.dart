@@ -16,7 +16,7 @@ class AppConsts {
   static const String tokenKey = "TOKEN";
   static const String otpKey = "OTP";
 
-  static const String baseUrl = "http://134.209.132.80/api/";
+  static const String baseUrl = "http://167.71.79.133/api/";
   static const String registerEndPoint = "auth/register";
   static const String loginEndPoint = "auth/login";
   static String otpEndPoint(String email) => "auth/otp/$email";
@@ -24,7 +24,7 @@ class AppConsts {
   static String userProfileEndPoint(int id) => "auth/profile/$id";
   static String editProfileInterstedWorkEndPoint(int id) => "user/profile/$id";
   static const String recentJobEndPoint = "jobs";
-  static String suggestedJobEndPoint(int id) => "/jobs/sugest/$id";
+  static String suggestedJobEndPoint(int id) => "jobs/sugest/$id";
   static const String searchJobEndPoint = "jobs/search";
   static const String filterEndPoint = "jobs/filter";
   static const String applyEndPoint = "apply";

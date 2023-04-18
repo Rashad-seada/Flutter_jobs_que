@@ -10,9 +10,9 @@ import '../../core/config/app_theme.dart';
 class SearchBar extends StatelessWidget {
   TextEditingController? controller;
   Function()? onTap;
-  Function()? onChanged;
-  Function()? onSubmitted;
-  Function()? onEditingComplete;
+  void Function(String)? onChanged;
+  void Function(String)? onSubmitted;
+  void Function()? onEditingComplete;
   TextInputType? keyboardType;
   double? width;
 
@@ -41,23 +41,15 @@ class SearchBar extends StatelessWidget {
         autofocus: false,
         keyboardType: keyboardType,
         onTap: onTap,
-        onChanged:(text) {
-          onChanged!();
-        },
-        onSubmitted:(text) {
-          onSubmitted!();
-        },
-        onEditingComplete:(){
-          onEditingComplete!();
-        },
+        onChanged: onChanged,
+        onSubmitted: onSubmitted,
+        onEditingComplete: onEditingComplete,
         controller: controller,
         decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 1.h),
             prefixIcon: InkWell(
               borderRadius: BorderRadius.circular(100),
-              onTap: () {
-                onSubmitted!();
-              },
+              //onTap: onSubmitted,
               child: Padding(
                 padding: const EdgeInsets.all(14),
                 child: SvgPicture.asset(AppImages.search),

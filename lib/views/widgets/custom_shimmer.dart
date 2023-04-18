@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobs_que/core/config/app_theme.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CustomShimmer extends StatelessWidget {
@@ -8,8 +9,8 @@ class CustomShimmer extends StatelessWidget {
   CustomShimmer({
     Key? key,
     required this.child,
-    this.baseColor = const Color(0xfff3f3f3),
-    this.highlightColor = const Color(0xfff3f3f3),
+    this.baseColor =  AppTheme.neutral100,
+    this.highlightColor = AppTheme.neutral300,
   }) : super(key: key);
 
   @override

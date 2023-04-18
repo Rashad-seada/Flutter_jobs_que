@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobs_que/core/config/app_theme.dart';
 import 'package:jobs_que/domain/entities/jobs/recent_jobs_entity.dart';
+import 'package:jobs_que/views/blocs/search/search_cubit.dart';
 import 'package:jobs_que/views/components/home_page/recent_card.dart';
 import 'package:jobs_que/views/components/home_page/recent_card_place_holder.dart';
 import 'package:sizer/sizer.dart';
@@ -9,28 +10,29 @@ import '../../../core/config/app_strings.dart';
 import '../../../domain/entities/jobs/suggested_jobs_entity.dart';
 import '../../blocs/home/home_cubit.dart';
 import '../../blocs/recent_jobs/recent_jobs_cubit.dart';
+import '../../widgets/custom_text.dart';
 import '../../widgets/section_header.dart';
 import '../../widgets/space.dart';
 
-class RecentSection extends StatefulWidget {
+class SearchSection extends StatefulWidget {
   bool withHeader;
 
-  RecentSection({
+  SearchSection({
     this.withHeader = true,
     Key? key
   }) : super(key: key);
 
   @override
-  State<RecentSection> createState() => _RecentSectionState();
+  State<SearchSection> createState() => _SearchSectionState();
 }
 
-class _RecentSectionState extends State<RecentSection> {
+class _SearchSectionState extends State<SearchSection> {
 
   @override
   void initState() {
-    context.read<RecentJobsCubit>().getRecentJobs(context);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -43,21 +45,25 @@ class _RecentSectionState extends State<RecentSection> {
 
         SizedBox(
           width: 85.w,
-          child: BlocConsumer<RecentJobsCubit, RecentJobsState>(
+          child: BlocConsumer<SearchCubit, SearchState>(
             listener: (context, state) {},
             builder: (context, state) {
 
-              if(state is RecentJobsIsSuccess) {
-                return ListView.separated(
+              if(state is SearchIsSuccess) {
+
+                if(SearchIsSuccess.jobs!.isEmpty){
+                  return Center(child:CustomText("Sorry, we couldn't find any results "));
+                }else {
+                  return ListView.separated(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (context,index){
                       return Column(
                         children: [
 
-                          RecentCard(job: RecentJobsIsSuccess.jobs![index],),
+                          RecentCard(job: SearchIsSuccess.jobs![index],),
 
-                          Space(height: (index == RecentJobsIsSuccess.jobs!.length -1)? 10.h: 0),
+                          Space(height: (index == SearchIsSuccess.jobs!.length -1)? 10.h: 0),
 
                         ],
                       );
@@ -65,13 +71,14 @@ class _RecentSectionState extends State<RecentSection> {
                     separatorBuilder: (context,index){
                       return  Expanded(child: Divider(color: AppTheme.neutral200,));
                     },
-                    itemCount: RecentJobsIsSuccess.jobs!.length
+                    itemCount: SearchIsSuccess.jobs!.length
                 );
+                }
 
               }
-              else if(state is RecentJobsIsError) {
-                return SizedBox();
-              }else {
+              else if(state is SearchIsFaild) {
+                return Center(child: CustomText("there was unknown error"),);
+              }else if(state is SearchIsLoading){
                 return ListView.separated(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
@@ -81,7 +88,7 @@ class _RecentSectionState extends State<RecentSection> {
 
                           RecentCardPlaceHolder(),
 
-                          Space(height: (index == 2)? 10.h: 0),
+                          Space(height: (index == 4)? 10.h: 0),
 
                         ],
                       );
@@ -89,8 +96,10 @@ class _RecentSectionState extends State<RecentSection> {
                     separatorBuilder: (context,index){
                       return  Expanded(child: Divider(color: AppTheme.neutral200,));
                     },
-                    itemCount: 3
+                    itemCount: 5
                 );
+              }else {
+                return SizedBox();
               }
             },
           ),

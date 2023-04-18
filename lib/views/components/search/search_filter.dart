@@ -30,12 +30,6 @@ class SearchFilter extends StatelessWidget {
 
         Space(width: 0.5.w,),
 
-        MainButton(
-          width: 25.w,
-          height: 4.5.h,
-          color: AppTheme.primary900Clr,
-          child: CustomText('Remote',color: Colors.white,fontSize: AppConsts.subTextSize.sp -1.sp,),
-        )
 
 
 

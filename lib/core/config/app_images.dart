@@ -60,6 +60,9 @@ class AppImages {
   static const String experience = "images/experience.svg";
   static const String error = "images/error.svg";
   static const String wrong = "images/wrong.svg";
+  static const String searchPlaceHolder = "images/search_place_holder.png";
+  static const String notFoundPlaceHolder = "images/not_found_place_holder.png";
+
 
 
   static String profileIcon({required bool active}){

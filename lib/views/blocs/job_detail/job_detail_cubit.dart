@@ -15,12 +15,6 @@ class JobDetailCubit extends Cubit<JobDetailState> {
 
   int currentIndex = 0;
 
-  List<Widget> pages = [
-    DescriptionPage(),
-    CompanyPage(),
-    PeoplePage(),
-  ];
-
   List<JobDetailState> states = [
     JobDetailDescriptionPage(),
     JobDetailCompanyPage(),

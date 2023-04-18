@@ -8,7 +8,13 @@ import 'package:sizer/sizer.dart';
 import '../widgets/read_more.dart';
 
 class DescriptionPage extends StatelessWidget {
-  const DescriptionPage({Key? key}) : super(key: key);
+  String jobDescription;
+  String skilledRequired;
+
+  DescriptionPage({
+    required this.jobDescription,
+    required this.skilledRequired,
+    Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +34,7 @@ class DescriptionPage extends StatelessWidget {
               fontWeight: FontWeight.w600,
           ),
           Space(height: 1.5.h,),
-          ReadMore(),
+          ReadMore(text: jobDescription,),
           Space(height: 3.h,),
 
           CustomText(
@@ -39,7 +45,7 @@ class DescriptionPage extends StatelessWidget {
           ),
 
           Space(height: 1.5.h,),
-          ReadMore(),
+          ReadMore(text: skilledRequired,),
           Space(height: 6.h,),
 
         ],

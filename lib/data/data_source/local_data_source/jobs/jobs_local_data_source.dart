@@ -32,32 +32,32 @@ abstract class JobsLocalDataSource {
 }
 
 class JobsLocalDataSourceImpl extends JobsLocalDataSource {
-  late AppDatabase database;
+  Future<AppDatabase> get database async => await dbInit();
 
   JobsLocalDataSourceImpl();
 
-  dbInit() async {
-    database = await $FloorAppDatabase
+  Future<AppDatabase> dbInit() async {
+    return await $FloorAppDatabase
         .databaseBuilder(AppConsts.sqfLiteDbName)
         .build();
   }
 
-  RecentJobDao get recentJobDao => database.recentJobDao;
+  Future<RecentJobDao> get recentJobDao => database.then((value) => value.recentJobDao);
 
-  SuggestedJobDao get suggestedJobDao => database.suggestedJobDao;
+  Future<SuggestedJobDao> get suggestedJobDao => database.then((value) => value.suggestedJobDao);
 
-  FavoriteJobDao get favoriteJobDao => database.favoriteJobDao;
+  Future<FavoriteJobDao> get favoriteJobDao => database.then((value) => value.favoriteJobDao);
 
   @override
   Future<RecentJobsModel> getRecentJobs() async {
-    var recentJobs = await recentJobDao.getAllJobs();
+    var recentJobs = await recentJobDao.then((value) => value.getAllJobs());
     RecentJobsModel model = RecentJobsModel(true, recentJobs);
     return model;
   }
 
   @override
   Future<SuggestedJobsModel> getSuggestedJobs() async {
-    var suggestedJob = await suggestedJobDao.getAllJobs();
+    var suggestedJob = await suggestedJobDao.then((value) => value.getAllJobs());
     SuggestedJobsModel model = SuggestedJobsModel(true, suggestedJob);
     return model;
   }
@@ -66,7 +66,7 @@ class JobsLocalDataSourceImpl extends JobsLocalDataSource {
   Future<void> setRecentJobs(List<RecentJob>? jobs) async {
     if(jobs == null) return ;
     for (int i = 0; i < jobs.length; ++i) {
-      await recentJobDao.insertJob(jobs[i]);
+      await recentJobDao.then((value) => value.insertJob(jobs[i]));
     }
   }
 
@@ -74,28 +74,28 @@ class JobsLocalDataSourceImpl extends JobsLocalDataSource {
   Future<void> setSuggestedJobs(List<SuggestedJob>? jobs) async {
     if(jobs == null) return ;
     for (int i = 0; i < jobs.length; ++i) {
-      await suggestedJobDao.insertJob(jobs[i]);
+      await suggestedJobDao.then((value) => value.insertJob(jobs[i]));
     }
   }
 
   @override
   Future<void> clearRecentJobs() async {
-    recentJobDao.deleteAllJobs();
+    recentJobDao.then((value) => value.deleteAllJobs());
   }
 
   @override
   Future<void> clearSuggestedJobs() async {
-    suggestedJobDao.deleteAllJobs();
+    suggestedJobDao.then((value) => value.deleteAllJobs());
   }
 
   @override
   Future<void> clearFavoriteJobs() async {
-    favoriteJobDao.deleteAllJobs();
+    favoriteJobDao.then((value) => value.deleteAllJobs());
   }
 
   @override
   Future<AllFavoriteJobsModel> getFavoriteJobs() async {
-    var favoriteJobs = await favoriteJobDao.getAllJobs();
+    var favoriteJobs = await favoriteJobDao.then((value) => value.getAllJobs());
     AllFavoriteJobsModel model = AllFavoriteJobsModel(true, favoriteJobs);
     return model;
   }
@@ -104,7 +104,7 @@ class JobsLocalDataSourceImpl extends JobsLocalDataSource {
   Future<void> setFavoriteJobs(List<FavoriteJob>? jobs) async {
     if(jobs == null) return ;
     for (int i = 0; i < jobs.length; ++i) {
-      await favoriteJobDao.insertJob(jobs[i]);
+      await favoriteJobDao.then((value) => value.insertJob(jobs[i]));
     }
   }
 }
