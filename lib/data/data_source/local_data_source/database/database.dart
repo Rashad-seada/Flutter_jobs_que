@@ -12,7 +12,7 @@ import 'dao/recent_job_dao.dart';
 import 'dao/suggested_job_dao.dart';
 
 
-part 'database.g.dart'; // the generated code will be there
+part 'database.g.dart';
 
 @Database(version: 1, entities: [RecentJob,SuggestedJob,FavoriteJob,Education])
 abstract class AppDatabase extends FloorDatabase {

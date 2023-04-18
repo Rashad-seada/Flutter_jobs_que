@@ -14,12 +14,30 @@ class SearchGetRecentSearchs extends SearchState {
   List<Object> get props => [];
 }
 
-class SearchGetSuggestions extends SearchState {
+
+class SearchGetResults extends SearchState {
   @override
   List<Object> get props => [];
 }
 
-class SearchGetResults extends SearchState {
+
+class SearchIsLoading extends SearchState {
+  @override
+  List<Object> get props => [];
+}
+
+class SearchIsSuccess extends SearchState {
+  static List<RecentJob>? jobs = [];
+
+  SearchIsSuccess(List<RecentJob>? searchedJobs){
+    jobs = searchedJobs;
+  }
+
+  @override
+  List<Object> get props => [];
+}
+
+class SearchIsFaild extends SearchState {
   @override
   List<Object> get props => [];
 }

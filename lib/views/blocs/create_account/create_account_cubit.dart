@@ -49,7 +49,7 @@ class CreateAccountCubit extends Cubit<CreateAccountState> {
 
   List<String> workOptions = [
     AppStrings.createAccountThirdOption1,
-    AppStrings.createAccountThirdOption2
+    AppStrings.createAccountThirdOption2,
   ];
 
   String getSelectedOption(){

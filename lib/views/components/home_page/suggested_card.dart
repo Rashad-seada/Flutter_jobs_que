@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:jobs_que/core/config/app_const.dart';
@@ -10,7 +11,9 @@ import 'package:jobs_que/views/widgets/space.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../domain/entities/jobs/suggested_jobs_entity.dart';
+import '../../screens/10_job_details_screen.dart';
 import '../../widgets/company_image.dart';
+import '../../widgets/custom_page_transition.dart';
 
 class SuggestedCard extends StatelessWidget {
   int index;
@@ -27,7 +30,7 @@ class SuggestedCard extends StatelessWidget {
     return Container(
       width: 80.w,
       height: 23.h,
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: (index == 0)? AppTheme.primary900Clr : AppTheme.neutral100,
         borderRadius: BorderRadius.circular(12),
@@ -53,9 +56,9 @@ class SuggestedCard extends StatelessWidget {
                     children: [
 
                       CustomText(
-                        "${job.jobType}",
-                        color: (this.index == 0)? Colors.white : AppTheme.neutral900,
-                        fontSize:  AppConsts.textSize.sp ,
+                        "${job.name}",
+                        color: (index == 0)? Colors.white : AppTheme.neutral900,
+                        fontSize:  AppConsts.textSize.sp + 2.sp,
                       ),
                       Space(height: 1.5,),
 
@@ -79,21 +82,52 @@ class SuggestedCard extends StatelessWidget {
 
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: List.generate(
-                3,
-                (index) => Container(
-                  padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+            children: [
+              Expanded(
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
                   decoration: BoxDecoration(
-                    color: (this.index == 0)? Colors.white.withOpacity(0.12): AppTheme.primary100Clr,
+                    color: (index == 0)? Colors.white.withOpacity(0.12): AppTheme.primary100Clr,
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: CustomText(
                     "${job.jobTimeType}",
-                    color: (this.index == 0)? Colors.white : AppTheme.primary500Clr,
+                    color: (index == 0)? Colors.white : AppTheme.primary500Clr,
                   ),
-                )
-
-            )
+                ),
+              ),
+              Space(width: 3.w,),
+              Expanded(
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: (index == 0)? Colors.white.withOpacity(0.12): AppTheme.primary100Clr,
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  child: CustomText(
+                    "${job.jobType}",
+                    color: (index == 0)? Colors.white : AppTheme.primary500Clr,
+                  ),
+                ),
+              ),
+              Space(width: 3.w,),
+              Expanded(
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: (index == 0)? Colors.white.withOpacity(0.12): AppTheme.primary100Clr,
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  child: CustomText(
+                    "${job.jobLevel}",
+                    color: (index == 0)? Colors.white : AppTheme.primary500Clr,
+                  ),
+                ),
+              ),
+            ]
           ),
 
           Row(
@@ -102,7 +136,7 @@ class SuggestedCard extends StatelessWidget {
               Row(
                 children: [
                   CustomText(
-                    "${job.salary}/${AppStrings.month}",
+                    "\$${job.salary}",
                     color: (index == 0)? Colors.white : AppTheme.success700,
                     fontSize: AppConsts.textSize.sp + 5.sp,
                   ),
@@ -122,6 +156,7 @@ class SuggestedCard extends StatelessWidget {
                   color: Colors.white,
                   fontSize: AppConsts.subTextSize.sp,
                 ),
+                onTap: ()=> Navigator.push(context, CustomPageTransition(JobDetailsScreen(job: Left(job),))),
               )
 
 

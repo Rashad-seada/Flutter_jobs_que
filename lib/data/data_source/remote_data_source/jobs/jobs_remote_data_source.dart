@@ -9,7 +9,6 @@ import '../../../../core/config/app_const.dart';
 import '../../../models/jobs/search_job_model.dart';
 
 
-
 abstract class JobsRemoteDataSource {
 
   Future<RecentJobsModel> getRecentJobs({required String token});

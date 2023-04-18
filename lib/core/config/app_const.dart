@@ -24,7 +24,7 @@ class AppConsts {
   static String userProfileEndPoint(int id) => "auth/profile/$id";
   static String editProfileInterstedWorkEndPoint(int id) => "user/profile/$id";
   static const String recentJobEndPoint = "jobs";
-  static String suggestedJobEndPoint(int id) => "/jobs/sugest/$id";
+  static String suggestedJobEndPoint(int id) => "jobs/sugest/$id";
   static const String searchJobEndPoint = "jobs/search";
   static const String filterEndPoint = "jobs/filter";
   static const String applyEndPoint = "apply";
